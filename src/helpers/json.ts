@@ -19,6 +19,6 @@ export const getJsonResponse = (response: Response): Promise<AnyJson> => {
   if (checkIsJsonResponse(response)) {
     return response.json();
   } else {
-    throw new Error('expected JSON response from server');
+    return Promise.reject(new Error('expected JSON response from server'))
   }
 };
